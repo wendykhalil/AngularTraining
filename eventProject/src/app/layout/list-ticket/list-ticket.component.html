@@ -1,0 +1,28 @@
+<h1>{{title}}</h1>
+<input type="text" name="search" placeholder="search by id" class="form-control" [(ngModel)]="search">
+<h1>{{search}}</h1>
+<table class="table">
+    <tr>
+        <th>id</th>
+        <th>price</th>
+        <th>available</th>
+    </tr>
+    <tr *ngFor="let t of tickets" [hidden]="!(t.id==search) && search">
+        <td>
+            id: {{t.id}}
+        </td>
+        <td>
+            price: {{t.price}}
+        </td>
+        <td>
+            {{t.price}}
+        </td>
+        <td>{{t.valid}}</td>
+        <td>
+            <button class="btn btn-sm btn-primary" [disabled]="!t.valid" (click)="validateTicket(t)">
+                validate
+            </button>
+        </td>
+    </tr>
+</table>
+<!-- taba3 lmara ili fatit  -->
